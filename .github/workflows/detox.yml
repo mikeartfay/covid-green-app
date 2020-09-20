@@ -9,7 +9,7 @@ on:
 jobs:
   android-build:
     name: Android Build
-    runs-on: macos-latest
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
@@ -81,7 +81,7 @@ jobs:
         env:
           BUNDLE_GEMFILE: '${{ github.workspace }}/ios/Gemfile'
         with:
-          ruby-version: '2.6'
+          ruby-version: '2.6.*'
           bundler-cache: true
 
       - name: Setup Version variable
@@ -112,7 +112,7 @@ jobs:
 
   ios-build:
     name: iOS Build and Test
-    runs-on: macos-latest
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
