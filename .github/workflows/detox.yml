@@ -78,11 +78,13 @@ jobs:
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+          bundler-cache: true
+
+      - name: Bundle Install
         env:
           BUNDLE_GEMFILE: '${{ github.workspace }}/ios/Gemfile'
-        with:
-          ruby-version: '2.6.5'
-          bundler-cache: true
         run: bundle install --gemfile=$BUNDLE_GEMFILE
 
       - name: Setup Version variable
