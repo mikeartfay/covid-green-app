@@ -77,15 +77,12 @@ jobs:
         run: yarn install --network-timeout 100000
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: actions/setup-ruby@v1
+        env:
+          BUNDLE_GEMFILE: '${{ github.workspace }}/ios/Gemfile'
         with:
           ruby-version: '2.6'
           bundler-cache: true
-
-      - name: Bundle Install
-        env:
-          BUNDLE_GEMFILE: '${{ github.workspace }}/ios/Gemfile'
-        run: bundle install --gemfile=$BUNDLE_GEMFILE
 
       - name: Setup Version variable
         run: |
