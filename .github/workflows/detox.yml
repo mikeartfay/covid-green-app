@@ -81,7 +81,7 @@ jobs:
         env:
           BUNDLE_GEMFILE: '${{ github.workspace }}/ios/Gemfile'
         with:
-          ruby-version: '2.6.*'
+          ruby-version: '2.6.5'
           bundler-cache: true
 
       - name: Setup Version variable
